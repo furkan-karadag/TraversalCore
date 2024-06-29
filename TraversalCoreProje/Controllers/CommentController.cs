@@ -5,25 +5,25 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCoreProje.Controllers
 {
-    public class CommentController : Controller
-    {
-        CommentManager commentManager=new CommentManager(new EfCommentDal());
+	public class CommentController : Controller
+	{
+		CommentManager commentManager = new CommentManager(new EfCommentDal());
 
-        [HttpGet]
-        public PartialViewResult AddComment()
-        {
-            return PartialView();
-        }
+		[HttpGet]
+		public PartialViewResult AddComment()
+		{
+			return PartialView();
+		}
 
-        [HttpPost]
-        public IActionResult AddComment(Comment p)
-        {
-            p.CommentDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
-            p.CommentState = true;
-            commentManager.Tadd(p);
-            return RedirectToAction("Index","Destination");
-            
-        }
+		[HttpPost]
+		public IActionResult AddComment(Comment p)
+		{
+			p.CommentDate = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+			p.CommentState = true;
+			commentManager.Tadd(p);
+			return RedirectToAction("Index", "Destination");
 
-    }
+		}
+
+	}
 }
