@@ -8,5 +8,6 @@ namespace EntityLayer.Concrete
 		public string Name { get; set; }
 		public string Surname { get; set; }
 		public byte Gender { get; set; }
-	}
+        public List<Reservation> Reservations { get; set; }
+    }
 }
